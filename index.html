@@ -91,26 +91,36 @@
     </div>
     
     <model-viewer 
-        src="GunnedCarhighpoly.glb"
-        ios-src="GunnedCarhighpoly.usdz"
-        ar
-        ar-modes="webxr scene-viewer quick-look"
-        camera-controls
-        auto-rotate
-        rotation-per-second="20deg"
-        auto-rotate-delay="2000"
-        shadow-intensity="1"
-        shadow-softness="0.5"
-        exposure="1"
-        environment-image="neutral"
-        skybox-image=""
-        alt="3D Car Model - View in AR"
-        min-camera-orbit="auto auto 5%"
-        max-camera-orbit="auto auto 100%"
-        field-of-view="30deg"
-        interaction-prompt="auto"
-        ar-placement="floor"
-        ar-scale="auto">
+    src="car.glb"
+    ios-src="car.usdz"
+    ar
+    ar-placement="floor"
+    ar-modes="webxr scene-viewer quick-look"
+    camera-orbit="45deg 65deg 2.5m"
+    min-camera-orbit="auto auto 1m"
+    max-camera-orbit="auto auto 10m"
+    camera-controls
+    auto-rotate
+    rotation-per-second="20deg"
+    auto-rotate-delay="2000"
+    shadow-intensity="1"
+    shadow-softness="0.5"
+    exposure="1"
+    environment-image="neutral"
+    alt="3D Car Model - View in AR"
+    interaction-prompt="auto"
+    field-of-view="30deg"
+    ar-scale="auto">
+    
+    <div class="loading-text" slot="poster">
+        Loading 3D Model...<br>
+        <small>This may take a moment</small>
+    </div>
+    
+    <button slot="ar-button" class="ar-button">
+        📱 View in AR
+    </button>
+</model-viewer>
         
         <div class="loading-text" slot="poster">
             Loading 3D Model...<br>
@@ -141,6 +151,3 @@
         modelViewer.addEventListener('error', (event) => {
             console.error('Error loading model:', event.detail);
         });
-    </script>
-</body>
-</html>
